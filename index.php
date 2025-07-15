@@ -1,5 +1,5 @@
 <?php
-include '../views/includes/header.php';
+include 'views/includes/header.php';
 include 'database/connect.php';
 
 $query = "SELECT nombre_producto, descripcion, imagen, precio_producto FROM productos";
@@ -25,4 +25,4 @@ $resultado = $conn->query($query);
   </div>
 </main>
 
-<?php include '../views/includes/footer.php'; ?>
+<?php include 'views/includes/footer.php'; ?>

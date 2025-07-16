@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-07-2025 a las 01:26:33
+-- Tiempo de generación: 16-07-2025 a las 04:06:52
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -43,6 +43,7 @@ CREATE TABLE `carrito` (
 CREATE TABLE `factura` (
   `id` int(11) NOT NULL,
   `id_carrito` int(11) DEFAULT NULL,
+  `usuario_id` int(11) NOT NULL,
   `precio_final` decimal(10,2) DEFAULT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -93,7 +94,8 @@ ALTER TABLE `carrito`
 --
 ALTER TABLE `factura`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_carrito` (`id_carrito`);
+  ADD KEY `id_carrito` (`id_carrito`),
+  ADD KEY `usuario_id` (`usuario_id`);
 
 --
 -- Indices de la tabla `productos`
@@ -151,7 +153,8 @@ ALTER TABLE `carrito`
 -- Filtros para la tabla `factura`
 --
 ALTER TABLE `factura`
-  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`id_carrito`) REFERENCES `carrito` (`id`);
+  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`id_carrito`) REFERENCES `carrito` (`id`),
+  ADD CONSTRAINT `factura_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

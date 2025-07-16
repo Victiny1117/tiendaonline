@@ -42,7 +42,7 @@ $resultado = $query->get_result();
                   <h5 class="card-title"><?php echo $item['nombre_producto']; ?></h5>
                   <p class="card-text mb-1">Cantidad: <?php echo $item['cantidad']; ?></p>
                   <p class="card-text fw-bold text-success">$<?php echo number_format($subtotal, 2); ?></p>
-                  <a href="../controllers/carrito.php?remove=<?php echo $item['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                  <a href="../controllers/cart.php?remove=<?php echo $item['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
                 </div>
               </div>
             </div>

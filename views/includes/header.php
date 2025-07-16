@@ -46,17 +46,23 @@ session_start();
 
     <!-- Navegacion -->
     <nav class="d-flex flex-wrap gap-2">
-      <a href="../views/products.php" class="btn btn-custom">Productos</a>
+      <a href="../views/home.php" class="btn btn-custom">Productos</a>
       <a href="../views/search.php" class="btn btn-custom">Buscar</a>
       <a href="../views/cart.php" class="btn btn-custom">Carrito</a>
       <a href="../views/profile.php" class="btn btn-custom">Mi Perfil</a>
 
-      <?php if (!isset($_SESSION['usuario'])): ?>
-        <a href="../views/login.php" class="btn btn-custom">Iniciar Sesión</a>
-        <a href="../views/register.php" class="btn btn-custom">Registrarse</a>
-      <?php else: ?>
-        <a href="../controllers/logout.php" class="btn btn-custom">Cerrar Sesión</a>
-      <?php endif; ?>
-    </nav>
+      
+  <?php if (!isset($_SESSION['usuario'])): ?>
+    <a href="../views/login.php" class="btn btn-custom">Iniciar Sesión</a>
+    <a href="../views/register.php" class="btn btn-custom">Registrarse</a>
+  <?php else: ?>
+    <?php if ($_SESSION['usuario']['nivel'] === 'admin'): ?>
+      <a href="../views/adminpanel.php" class="btn btn-custom">Administración</a>
+    <?php else: ?>
+      <a href="../views/profile.php" class="btn btn-custom">Mi Perfil</a>
+    <?php endif; ?>
+    <a href="../controllers/logout.php" class="btn btn-custom">Cerrar Sesión</a>
+  <?php endif; ?>
+</nav>
   </div>
 </header>

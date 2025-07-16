@@ -1,4 +1,4 @@
-<?php include '../includes/header.php'; ?>
+<?php include '../views/includes/header.php'; ?>
 
 <main class="container my-5">
   <h2 class="text-center mb-4">Inicio de Sesión</h2>
@@ -9,4 +9,4 @@
   </form>
 </main>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../views/includes/footer.php'; ?>
